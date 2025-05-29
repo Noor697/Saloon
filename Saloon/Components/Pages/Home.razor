@@ -1,0 +1,1424 @@
+﻿@page "/"
+@using Saloon.Components.Layout
+@layout EmptyLayout
+
+<PageTitle>SaloonOnline</PageTitle>
+<style>
+	.header {
+		position: relative;
+		overflow: hidden; /* Ensures nothing overflows */
+	}
+	.red-background {
+		right:0;
+		position: absolute;
+		z-index: -1; /* Places it behind other content */
+		background-repeat:no-repeat;
+		background-size:contain;
+	}
+	#top-bar{
+		font-weight:700;
+		padding:12px;
+		border:0.2px solid rgb(220,218,218);
+		border-radius:40px;
+		color:rgb(66,63,63);
+	}
+
+	#top-bar:hover {
+		background-color:#dc3545;
+		color:white;
+	}
+	
+	.c1{
+		width:210px;
+	}
+	.btn1{
+		border-color: #dc3545;
+		width:200px;
+		color: #dc3545;
+		text-align:left;
+
+	}
+	.btn1:hover{
+			background-color: #dc3545;
+		color:white;
+	}
+
+	.btn2 {
+		border-color:black;
+		width: 200px;
+		color:dimgray;
+		text-align: left;
+	}
+	.btn2:hover{
+		background-color:grey;
+		color:white;
+	}
+	.btn-label{
+		font-size:12px;
+		padding-left:15px;
+	}
+	.btn-caption{
+		font-size:16px;
+		font-weight:700;
+	}
+	
+
+	
+
+	<!--About-->
+	#about-1::after{
+		background-color: #dc3545;
+		width:50px;
+		height:5px;
+		margin:20px;
+		display:block;
+		content:"";
+
+	}
+	#works-title::after{
+		background-color: #dc3545;
+		width: 50px;
+		height: 5px;
+		margin: 20px auto;
+		display: block;
+		content: "";
+	}
+	#Easy:hover{
+		color: #dc3545;
+	}
+	
+	.btn-store{
+		border-color: #dc3545;
+		width: 200px;
+		color: #dc3545;
+		border-color: #dc3545;
+		border-radius:40px;
+		text-align: left;
+	}
+	.btn-store:hover{
+		background-color: #dc3545;
+		color:white;
+	}
+
+	.work-app{
+		padding-left:10px;
+	}
+	.work-app span {
+		padding-left:30px;
+		font-weight:700;
+	}
+	#article-content{
+		padding-left:75px;
+	}
+	.article-content span{
+		padding-left:30px;
+		font-weight:700;
+	}
+
+	#bg-image{
+		background-image:url('Images/bg-services.png');
+		background-position:center;
+		background-repeat:no-repeat;
+		background-size:cover;
+		height:600px;
+	}
+	.youtube-button{
+		background-color:white;
+		color: #dc3545;
+		border-radius:35px;
+		width:70px;
+	}
+	.youtube-button:hover{
+			background-color: #dc3545;
+	}
+	.work-app .active{
+		border: 4px solid #dc3545;
+		border-radius:40px;
+		background-color: #dc3545;
+	}
+	svg{
+		vertical-align:middle;
+	}
+	/* Make the image white when active */
+	.work-app .active image {
+		filter: brightness(0) invert(1); /* Change image to white */
+	}
+
+
+	.icon{
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+		margin-bottom: 10px;
+	}
+	.imgsrc{
+		width: 50px;
+		height: 50px;
+		cursor:pointer;
+		margin-bottom:10px;
+	}
+
+	.carousel-indicators [data-bs-target] {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background-color: gray;
+		
+	}
+
+	.carousel-indicators .active {
+		background-color: blue;
+	}
+	#language-img{
+		width:70%;
+	}
+	
+	h5{
+		font-size:20px;
+		font-weight:600;
+	}
+	
+	.toggle-switch input[type=radio]{
+		display:none;
+	}
+	
+		.toggle-switch input[type="radio"]:checked+label{
+			color:white;
+			background: #dc3545;
+		}
+		.price{
+			border:1px solid whitesmoke;
+			border-radius:40px;
+			background:whitesmoke;
+			padding:25px;
+		}
+		.price:hover{
+			border: 3px solid #dc3545;
+		}
+		.news{
+			text-decoration:none;
+		color: #dc3545;
+		}
+		#contact-body{
+			padding-top:15px;
+			padding-bottom:10px;
+			border-bottom:2px solid gray;
+		}
+		.hover{
+		color: #dc3545;
+		}
+		.hover:hover{
+			color:black;
+		}
+		
+</style>
+
+
+
+
+<!--header navigation bar -->
+<div class="header">
+	<img src="Images/bg-mainlayout.png" width="850px" height="900px" class="red-background" data-aos="fade-in" data-aos-easing="ease"
+		 data-aos-duration="1200" />
+	<div class="container" >
+			<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<!--logo image-->
+				<a class="navbar-brand" href="#">
+					<img src="Images/Saloon-logo.png" alt="logo" width="150">
+				</a>
+
+				<!-- Toggle Button (Optional for responsive design) -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!--Navigation links-->
+             <div class="collapse navbar-collapse" id="navbarNav">   
+             <ul class="navbar-nav ms-auto">
+						<li class="nav-item pt-0">
+							<a class="nav-link mx-2" id="top-bar" aria-current="page" href="#about">About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-2" id="top-bar" href="#features">Features</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-2" id="top-bar" href="#screen">Screen</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-2" id="top-bar" href="#faq">FAQ</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-2" id="top-bar" href="#contact">Contact Us</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav ms-auto d-lg-inline-flex">
+                                <li class="nav-item mx-2 pt-0">
+                                    <a class="nav-link btn btn-lg btn-outline-light border border-2 fw-bold" id="appointment" href="#">Book an Appointment</a>
+                                </li>
+                            </ul>
+				 </div>
+			</div>
+			</nav>
+	</div>
+
+	<!--home view-->
+	<div class="container py-5" data-aos="fade-down" data-aos-easing="linear"
+		 data-aos-duration="1200">
+		<div class="row">
+			<!--left-side-->
+			<div class="col-md-6 py-5">
+				<h1 >
+					<b class="text-danger">Your Hassle-Free</b>
+					<br>
+					<b>Saloon.Online Booking</b>
+					<br />
+					<b>Solution</b>
+					</h1>
+					<p >We've designed the perfect solution to make your
+						<br />
+					hairdressing appointment a breeze.
+					</p>
+					<!--button1-->
+					<div class="d-flex pt-4 row">
+						<div class="c1 col-md-6 pt-2 text-end">
+						<a href="https://play.google.com/store/games?hl=en&pli=1" class="btn btn1 bounce d-flex">
+							<i class="fab fa-google-play fa-w-16 pt-2 fa-2x pull-left"></i>
+							<span class="btn-label">Available On <br>
+								<span class="btn-caption ">GOOGLE PLAY</span>
+								</span>
+						</a>
+						</div>
+						<!--button2-->
+						 <div class="c1 col-md-6 pt-2 text-start" >
+						<a href="https://www.apple.com/app-store/" class="btn btn2 bounce  d-flex">
+							<i class="fab fa-apple fa-2x fa-w-12 pt-2 pull-left"></i>
+							<span class="btn-label">Available On <br>
+								<span class="btn-caption ">APP STORE</span>
+								</span>
+							</a>
+							</div>
+					<p class="fst-italic text-secondary py-2">* Available on iphone, ipad and all Android devices</p>
+					</div>
+			</div>
+			<!-- right side phone image-->
+			<div class="col-md-6 py-3 ">
+				<div class="banner text-center">
+					<img src="Images/banner.png" alt="banner" style="width:50%;" data-aos="fade-up" data-aos-easing="ease"
+					data-aos-duration="1200">
+					</div>
+					</div>
+		</div>
+	</div>
+</div>
+<!-- Counts Section -->
+<div id="counts" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-3">
+				<p class="counts-container"><span class="counts display-2 text-danger" data-target="1289">0</span> Users</p>
+			</div>
+			<div class="col-md-3">
+				<p class="counts-container"><span class="counts display-2 text-danger" data-target="789">0</span> Download</p>
+			</div>
+			<div class="col-md-3">
+				<p class="counts-container"><span class="counts display-2 text-danger" data-target="1089">0</span> Likes</p>
+			</div>
+			<div class="col-md-3 ">
+				<p class="counts-container"><span class="counts display-2 text-danger" data-target="489">0</span> 5 Star Rating</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--about section-->
+<div class="container py-5" id="about" >
+	<!--row1-->
+	<div class="row py-5">
+						<!--left side-->
+		<div class="col-xl-6  pt-3 text-center py-5" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+			<!--row2-->
+				<div class="row">
+					<!--left side-->
+				<div class="col-md-6">
+					<img src="Images/about-two.png" class="w-100 pt-4" alt="Alternate Text">
+					</div>
+					<!--right side-->
+				<div class="col-md-6">
+					<img src="Images/about-one.png" width="100%" alt="Alternate Text">
+					<img src="Images/about=4th.png" width="100%" alt="Alternate Text" class="pt-4 w-100">
+					</div>
+
+				</div>
+				</div>
+				<!--right side-->
+		<div class="col-xl-6  py-2" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease">
+			<h1 id="about-1">About Us</h1>
+			<p class="pt-3" style="font-size:20px;">
+				At Saloon.Online, we have developed a seamless and user-friendly platform
+
+				that caters to both men and women, offering a convenient experience for
+
+				booking Saloon appointments. Our innovative app allows users to effortlessly
+
+				search for Saloons nearby or by name, providing them with a hassle-free
+
+				booking process.
+			</p>
+			<p class="pt-3" style="font-size:20px;">
+				Customers can select their desired services, choose suitable
+
+				timings, and make appointments with ease. Once the booking is confirmed,
+
+				Saloon owners can efficiently manage and approve appointments through
+
+				their admin portal. Our goal is to ensure that every customer can visit the
+
+				Saloon at their scheduled time without any delays, enjoying a smooth and
+
+				efficient Saloon experience. Experience the convenience of Saloon bookings
+
+				with Saloon.Online.
+			</p>
+		</div>
+	</div>
+</div>
+<!--features section-->
+<div style="background-color: rgb(252, 248, 248);">
+<div class="container " id="features">
+	<!--row1-->
+	<div class="row">
+		<!--coloumn-->
+			<div class="col-md-12 pt-5" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-up">
+			<div class="section-top text-center">
+				<h1 class="fw-bolder text-danger py-2">Awesome App Features</h1>
+			</div>
+		</div>
+	</div>
+	<!--row2-->
+		<div class="row py-5 text-center"  data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+			<!--col1-->
+			<div class="col-md-4 py-2" id="Easy">
+				<img src="Images/online-appoiment.png" width="200" alt="Alternate Text">
+				<h5 class="fw-bold py-3">Online Appointment Booking</h5>
+				<p>Schedule your salon visits with ease using our convenient online booking system.</p>
+			</div>
+			<!--col2-->
+			<div class="col-md-4 py-2" id="Easy">
+				<img src="Images/homesalon1.png" width="200" alt="Alternate Text">
+				<h5 class="fw-bold py-3">Home Services</h5>
+				<p>Enjoy saloon-quality services in the comfort of your own home with our home service options.</p>
+			</div>
+			<!--col3-->
+			<div class="col-md-4 py-2" id="Easy">
+				<img src="Images/management1.png" width="200" alt="Alternate Text">
+				<h5 class="fw-bold py-3">Barber Shop Management</h5>
+				<p>Empower barbers to efficiently manage their shops, services, and staff with our comprehensive management tools.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!--how it works section-->
+<div class="works py-5">
+	<div class="container">
+		<!--row1-->
+		<div class="row">
+			<!--coloumn-->
+			<div class="col-md-12 col-sm-12 text-center" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-up">
+				<h1 class="text-dark fw-bold text-center" id="works-title">
+					How it Works
+				</h1>
+				<p>
+					Experience the ease of the Saloon.Online App, your trusted companion for seamless Saloon reservations
+				</p>
+				<p>
+					Here is how it works
+
+				</p>
+			</div>
+		</div>
+		<!--row2-->
+		<div class="row py-5 px-5 text-center">
+			<!--col1 left side-->
+			<div class="col-md-12 col-lg-6 col-sm-12 py-3">
+				<div class="sign-image">
+					<img id="sign-up" src="Images/Sign up.png" alt="sign-up"  data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-left" class="aos-animate aos-init fade-in"/>
+					</div>
+			</div>
+			<!--col2 right side-->
+			<div class="col-md-12 col-lg-6 col-sm-12 py-5 pt-5 text-start">
+
+				<div class="work-app ">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class="active icon" data-image="Images/Sign up.png">
+							<image class="imgsrc" href="Images/18.svg"/>
+						</svg>
+						<span class="d-lg-inline-flex">Sign-Up</span>
+
+					</p>
+				</div>
+
+				<div class="work-app pt-2 mt-4">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class=" icon" data-image="Images/Chose Saloon.png">
+							<image class="imgsrc" href="Images/23.svg" />
+						</svg>
+						<span> Choose Saloon</span>
+					</p>
+				</div>
+
+				<div class="work-app pt-2 mt-4">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class="icon" data-image="Images/shop services.png">
+							<image class="imgsrc" href="Images/21.svg" />
+						</svg>
+						<span>
+							Select Variety of
+							services
+						</span>
+					</p>
+				</div>
+
+				<div class="work-app pt-2 mt-4">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class="icon" data-image="Images/Select date.jpg">
+							<image class="imgsrc" href="Images/19.svg" />
+						</svg>
+						<span>Select Date</span>
+					</p>
+				</div>
+
+				<div class="work-app pt-2 mt-4">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class="icon" data-image="Images/Select date time.png">
+							<image class="imgsrc" href="Images/32.svg" />
+						</svg>
+						<span>Select Time</span>
+					</p>
+				</div>
+				<div class="work-app pt-2 mt-4">
+					<p data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+						<svg class="icon" data-image="Images/choose your specialist.jpg">
+							<image class="imgsrc" href="Images/22.svg" />
+						</svg>
+						<span>Choose your Specialist</span>
+					</p>
+				</div>
+				<!--button1-->
+				<div class="pt-2 row " data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+					<div class="c1 col-md-6 pt-5 text-end">
+						<a href="https://play.google.com/store/games?hl=en&pli=1" class="btn btn-store  d-flex">
+							<i class="fab fa-google-play fa-w-16 pt-2 fa-2x pull-left"></i>
+							<span class="btn-label">
+								Available On <br>
+								<span class="btn-caption ">GOOGLE PLAY</span>
+							</span>
+						</a>
+					</div>
+					<!--button2-->
+					<div class="c1 col-md-6 pt-5 text-start">
+						<a href="https://www.apple.com/app-store/" class="btn btn-store  d-flex">
+							<i class="fab fa-apple fa-2x fa-w-12 pt-2 pull-left"></i>
+							<span class="btn-label">
+								Available On <br>
+								<span class="btn-caption ">APP STORE</span>
+							</span>
+						</a>
+					</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Services-->
+<div class ="article py-5" style="background-color: rgb(252, 248, 248);" >
+	<div class="container">
+		<!--row1-->
+		<div class="row">
+			<!--col left-->
+			<div class = "col-md-12 text-center fw-bold" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+				<h1 id="works-title">Services We Provide</h1>
+				</div>
+			</div>
+		<div class="row" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+			<div class="col-md-4 py-3">
+				<h3 class="py-5 fw-bold">Customer Services</h3>
+				<div class="article-content py-1">
+					<p>
+						<img src="Images/Appointment booking-1.png" alt="" width="50"><span>
+							Appointment Booking
+						</span> <br>
+					</p>
+					<p id="article-content">Easily book appointments with your favorite barbers.</p>
+
+				</div>
+				<div class="article-content py-1">
+					<p>
+						<img src="Images/chat.png" alt="" width="50"><span>
+							Chat with Saloon.Online
+						</span>
+					</p>
+					<p id="article-content">Get instant support and answers to your questions.</p>
+
+				</div>
+				<div class="article-content py-1">
+					<p>
+						<img src="Images/reminders.png" alt="" width="50"><span>
+							Special Offers Notifications
+						</span>
+					</p>
+					<p id="article-content">
+						Receive updates on special promotions and discounts.
+					</p>
+
+				</div>
+			</div>
+			<!--col middle-->
+			<div class="col-md-4 py-5 pt-5">
+				<img src="Images/m 1.png" alt="" style="width:100%;">
+			</div>
+			<!--col right-->
+			<div class="col-md-4 py-3">
+				<h3 class="py-5 fw-bold">Barber Services</h3>
+				<div class="article-content py-1">
+					<p>
+						<img src="Images/registered.png" alt="" width="50"><span>Register Your Saloon</span> <br>
+					</p>
+					<p id="article-content">Create a profile and showcase your saloon to potential customers.</p>
+
+				</div>
+				<div class="article-content py-1">
+					<p><img src="Images/management.png" alt="" width="50"><span>Manage Staff and Services</span></p>
+					<p id="article-content"> Keep your team and service offerings up to date</p>
+
+				</div>
+				<div class="article-content py-1">
+					<p><img src="Images/appointment-control.png" alt="" width="50"><span>Appointment Control</span></p>
+					<p id="article-content">Accept &amp; declined appointments  with ease.</p>
+
+				</div>
+				</div>
+
+			</div>
+	</div>
+	<!--video section-->
+	<div class="container-fluid py-5" id="bg-image">
+		<div class="row py-5">
+			<div class="col-md-12 text-center pt-5" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+				<h1 class="text-white text-center pt-5"> Watch a Quick Tutorial </h1>
+				<a href="https://saloon.online/" class="btn btn-lg youtube-button py-3">
+							<i class="fa fa-play text-black"></i>	
+				</a>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!--Interfaces Section-->
+	<div class="interfaces  py-5" id="screen">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+				<h1 id="works-title" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+					Simple & Beautiful interfaces
+				</h1>
+				<p data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-up">
+					Navigate effortlessly through our app with a clean and visually appealing<br />
+					interface that makes booking your Saloon appointments a breeze.
+				</p>
+
+				</div>
+			</div>
+		<div class="row">
+			<div class="container py-5">
+				<div class="col-md-12" id="demo"  data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+				
+					<div class="swiper-container  card-slider ">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+									<img src="Images/Ladies Home.png" alt="banner">
+							</div>
+
+							<div class="swiper-slide">
+									<img src="Images/My Favorite.png" alt="banner">
+							</div>
+
+							<div class="swiper-slide">
+									<img src="Images/My Booking-2.png" alt="banner">
+							</div>
+
+							<div class="swiper-slide">
+									<img src="Images/My Booking-1.png" alt="banner">
+							</div>
+
+							<div class="swiper-slide">
+									<img src="Images/Ladies book appointment.png" alt="banner">
+									</div>
+
+							<div class="swiper-slide">
+									<img src="Images/Gents Home.png" alt="banner">
+							</div>
+
+							<div class="swiper-slide">
+									<img src="Images/map.png" alt="banner">
+							</div>
+						</div>
+						<!--pagination add-->
+						<div class="swiper-pagination"></div>
+					</div>
+					</div>
+			</div>
+			</div>
+					
+
+	<div class="row pt-5">
+		<div class="col-md-6 pt-5" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+			<h3 class="fw-bold">Designed &amp; Developed  <br> on Latest Tech</h3>
+			<p class="pt-3">Our Website &amp; App is skillfully crafted using WordPress for versatile content management, .Net for robust backend functionality, .Net MAUI Hybrid for cross-platform app development, and enhanced with HTML, TILWIND CSS, and JS for seamless user experience and interactivity.</p> <br>
+			<a class="text-danger py-5 decoration-none fw-bold" href="">Discover &gt;</a>
+		</div>
+		<div class="col-md-6 pt-3 text-center " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+			<img src="Images/used-lang.png" alt="" id="language-img">
+		</div>
+	</div>
+
+	<!--faqs section-->
+	<div class="faq pt-5" id="faq">
+		<div class="container py-5">
+			<div class="row">
+				<div class="col-md-12 text-center ">
+						<h1 class="fw-bold" id="works-title" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">FAQ's</h1>
+				</div>
+			</div>
+				<div class="row pt-4">
+							<div class="col-12 pt-3" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-up">
+						<!--main(bs class collapse used-->
+						<div class="accordion" id="accordionExample">
+							<!--first Q-->
+							<div class="accordion-item">
+								<!--question-->
+								<h2 class="accordion-header" id="headingOne">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+										<h5>What is Saloon.Online?</h5>
+									</button>
+								</h2>
+								<!--answer-->
+								<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" >
+									<div class="accordion-body">
+										<p>Saloon.Online is a mobile app that allows you to easily book appointments at your favorite saloons and spas.</p>
+									</div>
+								</div>
+							</div>
+							<!--second Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingTwo">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+										<h5>How do I book and appointment using Saloon.Online?</h5>
+
+									</button>
+								</h2>
+								<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Simply download the app, browse through the list of services and saloons, choose your preferred service, select a time, and confirm your booking.</p>
+									</div>
+								</div>
+							</div>
+							<!--3 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										<h5>Is Saloon.Online free for use?</h5>
+									</button>
+								</h2>
+								<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Yes, the app is free for us customers. For saloons, they need to buy a subscription.</p>
+									</div>
+								</div>
+							</div>
+							<!--4 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingFour">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										<h5>Can I cancel or reschedule my appointment?</h5>
+									</button>
+								</h2>
+								<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Yes, you can cancel your appointment directly through the app, subject to the saloon's cancellation policy. For rescheduling the appointment, you need to cancel and then book the appointment&nbsp;again</p>
+									</div>
+								</div>
+							</div>
+							<!--5 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingFive">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+										<h5>What types of beauty services can I book through Saloon.Online?</h5>
+									</button>
+								</h2>
+								<div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>You can book a variety of beauty services including haircuts, coloring, facials, manicures, pedicures,&nbsp;and&nbsp;more.</p>
+									</div>
+								</div>
+							</div>
+							<!--6 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingSix">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+										<h5>How do I play for services booked on Saloon.Online?</h5>
+									</button>
+								</h2>
+								<div id="collapseSix" class="accordion-collapse collapse " aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Payments can de made inperson at the saloon.</p>
+									</div>
+								</div>
+							</div>
+							<!--7 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingSeven">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+
+										<h5>Are there any membership benefits or loyalty programs available?</h5>
+
+									</button>
+								</h2>
+								<div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample" >
+									<div class="accordion-body">
+										<p>No, but feature can be provided in the future.</p>
+									</div>
+								</div>
+							</div>
+							<!--8 Q-->
+
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingEight">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+
+										<h5>What should I do if have an issue with a service booked through Saloon.Online?</h5>
+
+									</button>
+								</h2>
+								<div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Please contact our customer support through the app or email us directly.We are committed to ensuring your&nbsp;satisfaction.</p>
+									</div>
+								</div>
+							</div>
+							<!--9 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingNine">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+
+										<h5>Is my personal and payment information safe with Saloon.Online?</h5>
+
+									</button>
+								</h2>
+								<div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Absolutely, we use the latest security protocols to ensure all your personal and payment information is securely&nbsp;encrypted.</p>
+									</div>
+								</div>
+							</div>
+							<!--10 Q-->
+
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingTen">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+
+										<h5>Can I see reviews of the saloons before booking an appoinment?</h5>
+
+									</button>
+								</h2>
+								<div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<p>Yes, Saloon.Online provides user reviews and ratings for each saloon to help you make and informed decision.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+	</div>
+	</div>
+	<!--pricing-->
+	<div class="budget pt-5">
+		<div class="container pt-5">
+			<div class="row text-center">
+				<div class="col-md-12">
+				<h1 class="fw-bold" id="works-title" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+					Get It Free For Your Salon
+				</h1>
+				<p class="pt-3"data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-up">
+					Experience quality services at budget-friendly rates with our<br />
+					transparent and reasonable pricing structure.
+
+				</p>
+				<br />
+				<div class="container mt-5 d-flex justify-content-center">
+					<div class="toggle-switch">
+						<input type="radio" id="monthly" name="toggle" checked="" onclick="toggle('monthly')">
+						<label for="monthly">Monthly</label>
+						<input type="radio" id="quarterly" name="toggle" onclick="toggle('quarterly')">
+						<label for="quarterly">Quarterly</label>
+						<input type="radio" id="yearly" name="toggle" onclick="toggle('yearly')">
+						<label for="yearly">Yearly</label>
+						<input type="radio" id="lifetime" name="toggle" onclick="toggle('lifetime')">
+						<label for="lifetime">Lifetime</label>
+					</div>
+				</div>
+				</div>
+
+			</div>
+			<!--monthly section-->
+			<div id="monthly-section" style="display:block;">
+				<div class="container">
+				<div class="row py-5 text-center" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+					<div class="col-md-4 pt-4" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+						<!--starter-->
+						<div class="price">
+							<h4 class="pt-2">Starter</h4>
+							<h4 class="pt-3">Free Trial For 7 Days</h4>
+							<h6><i class="fa  fa-check text-success"></i>Top Recommendations: Yes</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+							</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+							</h6>
+							<h6>No License</h6>
+							<h6 class="py-2">Phone &amp; Mail Support</h6>
+							<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+						</div>
+					</div>
+					<!--basic-->
+					<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+						<div class="price">
+							<h4 class="pt-2">Basic Package</h4>
+							<h4 class="pt-3">$100</h4>
+							<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+							</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+							</h6>
+
+							<h6>No License</h6>
+							<h6 class="py-2">Phone &amp; Mail Support</h6>
+							<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+						</div>
+					</div>
+					<!--premier-->
+					<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+						<div class="price">
+							<h4>Premiere Package</h4>
+							<h4 class="pt-3">$250</h4>
+
+							<h6><i class="fa  fa-check text-success"></i>Top Recommendations: Yes</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+							</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+							</h6>
+							<h6>
+								<i class="fa fa-check text-success"></i> 6 Month License
+							</h6>
+
+							<h6 class="py-2">Phone &amp; Mail Support</h6>
+							<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+						</div>
+					</div>
+
+					</div>
+
+				</div>
+
+			</div></div>
+		<!--quarterly section-->
+	<div id="quarterly-section" style="display: none;">
+		<div class="container">
+			<div class="row py-5 text-center " data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+				<!--starter-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Starter</h4>
+						<h4 class="pt-3">Free Trial For 14 Days</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--basic-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Basic Package</h4>
+						<h4 class="pt-3">$250</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--premier-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4>Premiere Package</h4>
+						<h4 class="pt-3">$700</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> 6 Month License
+						</h6>
+
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--yearly-->
+	<div id="yearly-section" style="display: none;">
+		<div class="container">
+			<div class="row py-5 text-center " data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+				<!--starter-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Starter</h4>
+						<h4 class="pt-3">Free Trial For 30 Days</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--baic-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Basic Package</h4>
+						<h4 class="pt-3">$1000</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--premier-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4>Premiere Package</h4>
+						<h4 class="pt-3">$2000</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> 6 Month License
+						</h6>
+
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--lifetime-->
+	<div id="lifetime-section" style="display: none;">
+		<div class="container">
+			<div class="row py-5 text-center" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+				<!--starter-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Starter</h4>
+						<h4 class="pt-3">Free Trial For 30 Days</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--basic-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4 class="pt-2">Basic Package</h4>
+						<h4 class="pt-3">$1500</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>No License</h6>
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+				<!--premier-->
+				<div class="col-md-4 pt-4 " data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="price">
+						<h4>Premiere Package</h4>
+						<h4 class="pt-3">$4000</h4>
+						<h6><i class="fa fa-w-16 fa-check text-success"></i>Top Recommendations: Yes</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Per Day Limit: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> Service and Staff Registration: Limited
+						</h6>
+						<h6>
+							<i class="fa fa-check text-success"></i> 6 Month License
+						</h6>
+
+						<h6 class="py-2">Phone &amp; Mail Support</h6>
+						<button type="button" class="btn btn-lg rounded-pill btn-outline-danger">Get Started</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!--feedback-->
+	<div class="feedback pt-5">
+		<div class="container py-5">
+			<div class="row text-center">
+				<div class="col-md-12">
+				<h1 class="fw-bold" id="works-title" data-aos-duration="1200" data-aos-easing="ease" data-aos="fade-down">
+					Customer Feedback:
+				</h1>
+				</div>
+			</div>
+		<div class="row py-5">
+			<div class="col-md-12">
+				<div id="carouselExampleDark" class="carousel carousel-dark slide" data-aos-duration="1200" data-aos-easing="ease" data-aos="zoom-in">
+					<div class="carousel-indicators pt-5">
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+					<div class="carousel-inner">
+						<!--carousel1-->
+						<div class="carousel-item active" data-bs-interval="10000">
+							<div class="container text-center">
+								<div class="row">
+									<div class="col-md-4">
+										<img src="Images/Feedback-img.png" alt="feedback" width="100">
+										<h6 class="pt-2">Tahir shah</h6>
+										<small>lincese is readdy</small>
+									</div>
+									<div class="col-md-8 ">
+										<p data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease">
+											"The Saloon app streamlined the booking process and made it so convenient <br />  
+											to schedule my appointments. The services provided were exceptional,<br />   and I was impressed with the
+											efficiency."
+										</p>
+										<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="far fa-star fa-sm"></i></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+								<!--carouse2-->
+
+						<div class="carousel-item" data-bs-interval="2000">
+							<div class="container text-center">
+								<div class="row">
+									<div class="col-md-4">
+										<img src="Images/feedback-2.jpg" alt="" width="100">
+										<h6 class="pt-2">Atif </h6>
+										<small>License is ready</small>
+									</div>
+									<div class="col-md-8 ">
+										<p data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease">
+											I found the Saloon app's services to be comprehensive and user-friendly. <br /> 
+											The range of options available for booking and managing appointments <br /> made my experience hassle-free and enjoyable."
+										</p>
+										<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="far fa-star fa-sm"></i></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+								<!--carousel3-->
+
+						<div class="carousel-item text-center">
+							<div class="container text-center">
+								<div class="row">
+									<div class="col-md-4">
+										<img src="Images/hamad-img.jpeg" alt="" width="100">
+										<h6 class="pt-2">Hamad</h6>
+										<small>License is ready</small>
+									</div>
+									<div class="col-md-8">
+										<p data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease">
+											"Using the Saloon app was a game-changer for me. The services offered  <br /> were of high quality, 
+											and the convenience of booking services through<br />  the app made my Saloon visits stress-free."
+										</p>
+										<ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="fas fa-star fa-sm"></i></li>
+											<li><i class="far fa-star fa-sm"></i></li>
+
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next red" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+						<span class="carousel-control-next-icon red" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!--news section-->
+
+	<div class="latestnews py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+				<h1 class="fw-bold" id="works-title" data-aos="fade-down" data-aos-duration="1200" data-aos-easing="ease">
+					Our Latest News
+				</h1>
+				</div>
+			</div>
+		<div class="row py-5" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease">
+			<!--left-->
+			<div class=" col-md-4 pt-5">
+				<img src=" Images/news-1.jpg" alt="news-img1" class=" h-50 w-100"  />
+				<p class="pt-2">Date: June 21, 2024</p>
+				<h6 class="pt-2 fw-bold">
+					Exciting Summer Specials!</h6>
+				<p>
+					Get ready for summer with our exclusive Saloon specials! From June 21st to August 31st, enjoy 20% off on all hair coloring services and free hair treatments with every haircut. Book your appointment now and shine this summer!
+
+				</p>
+				<a href="#" class="news">Read More</a>
+			</div>
+			<!--middle-->
+			<div class="col-md-4 pt-5">
+				<img src=" Images/news-2.jpeg" alt="news-img2" class=" h-50 w-100" />
+				<p class="pt-2">
+					Date: June 1, 2024
+				</p>
+				<h6 class="pt-2 fw-bold">
+					Saloon Renovation Complete!
+				</h6>
+				<p>
+					We are excited to announce the completion of our Saloon renovation. With a fresh, modern look and improved facilities, we are committed to providing you with the best Saloon experience. Visit us and see the transformation!
+
+				</p>
+				<a href="#" class="news">Read More</a>
+
+			</div>
+			<!--right-->
+			<div class="col-md-4 pt-5">
+				<img src="Images/news-3.jpeg" alt="news-img3" class=" h-50 w-100" />
+				<p class="pt-2">
+					Date: May 20, 2024
+				</p>
+				<h6 class="pt-2 fw-bold">
+					Client Appreciation Day
+				</h6>
+				<p>
+					Join us on July 10th for Client Appreciation Day! Enjoy complimentary refreshments, free mini-services, and special discounts. This is our way of saying thank you for your continued support. We look forward to celebrating with you!
+
+				</p>
+				<a href="#" class="news">Read More</a>
+			</div>
+	    </div>
+	</div>
+</div>
+
+<!--subscription to news letter-->
+<div class="sub-news py-5" style="background-color:whitesmoke;">
+	<div class="container">
+		<div class="row text-center py-5">
+			<div class="col-md-12">
+				<h1 data-aos="fade-down" data-aos-duration="1200" data-aos-easing="ease">
+					Subscribe to Our Newsletter
+				</h1>
+				<p data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease">
+					A Private Limited is the most popular type of partnership Malta. The limited liabillity<br />
+					is, in fact, the only type of company allowed by Companies.
+				</p>
+			</div>
+		</div>
+		<div class=" row text-center" id="foot-btn">
+			<div class="col-md-8 text-center">
+				<h2 class="text-white"><input type="text" name="name" value="" class="rounded-pill  text-danger form-control " placeholder="example@gmail.com"></h2>
+
+			</div>
+			<div class="col-md-4   text-center">
+				<a href="#" class="btn rounded-pill " id="sub-btn">Subscribe Now</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--contact section-->
+<div class="contact pt-5" id="contact" data-aos="zoom-in" data-aos-duration="1200" data-aos-easing="ease" style="background-color:whitesmoke;">
+	<div class="container" id="contact-body">
+		<div class="row">
+				<div class="col-md-3">
+					<img src="Images/Saloon-logo.png" alt="" width="50%">
+					<p class="pt-3">
+						Be the first to find out about exclusive
+						deals, the latest. Lookbooks trends. we're
+						on a mission to build a better future
+						where technology.
+					</p>
+					<ul class="list-unstyled d-flex text-danger mb-0 p-2">
+						<li><i class="fab p-2 fa-facebook"></i></li>
+						<li><i class="fab p-2 fa-tiktok"></i></li>
+						<li><i class="fab p-2 fa-instagram"></i></li>
+						<li><i class="fab p-2 fa-twitter"></i></li>
+
+					</ul>
+				</div>
+			<div class="col-md-3">
+				<h5>
+					Contact Information
+				</h5>
+				<h6 class="pt-5 fw-bold">
+					Phone: <small>+92 301 4004064</small>
+				</h6>
+				<h6 class="fw-bold">
+					Email: <small>
+						saloon.online@gmail.com
+					</small>
+				</h6>
+				<h6 class="fw-bold">
+					Address: <small> Office# 02, 1st Floor, VIP Plaza, I-8 Markaz, Islamabad, Pakistan</small>
+				</h6>
+			</div>
+			<div class="col-md-3">
+				<h5>Quick Links</h5>
+				<h6 class="pt-5"> 
+					<a href="#news-letter" class=" hover">News Letter</a>
+				</h6>
+				<h6> <a href="#" class=" hover">Privacy Policy</a> </h6>
+				<h6> <a href="#" class="hover">Support</a> </h6>
+				<h6> <a href="#" class=" hover">Terms &amp; Conditions</a> </h6>
+				<h6> <a href="#" class="hover">Contact</a> </h6>
+			</div>
+			<div class="col-md-3">
+				<h5>Download Now</h5>
+				<div class="row pt-5">
+					<div class="col-md-12 pt-1">
+							<a href="https://play.google.com/store/games?hl=en&pli=1" class="btn btn1 d-flex">
+								<i class="fab fa-google-play fa-w-16 pt-2 fa-2x pull-left"></i>
+								<span class="btn-label">
+									Available On <br>
+									<span class="btn-caption ">GOOGLE PLAY</span>
+								</span>
+							</a>
+						</div>
+						<!--button2-->
+					<div class="col-md-12 pt-4">
+							<a href="https://www.apple.com/app-store/" class="btn btn2 d-flex">
+								<i class="fab fa-apple fa-2x fa-w-12 pt-2 pull-left"></i>
+								<span class="btn-label">
+									Available On <br>
+									<span class="btn-caption ">APP STORE</span>
+								</span>
+							</a>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+<div class="container py-3">
+	<div class="row">
+		<div class="col-md-9">
+			<p>
+				2024, Powered by SoloChoicez Pvt Ltd | <a href="#" class="text-dark">Privacy Policy</a> | <a href="#" class="text-dark">Site Map</a>
+			</p>
+		</div>
+		<div class="col-md-3 text-center">
+			<p>All Right Reserved</p>
+		</div>
+	</div>
+</div>
+</div>
+
+			
+
+

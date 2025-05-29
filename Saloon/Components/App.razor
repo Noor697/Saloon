@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="@Assets["Saloon.styles.css"]" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+
+
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <HeadOutlet />
+</head>
+
+<body>
+    <Routes />
+    <script src="_framework/blazor.web.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--bg remove at 778px size-->
+    <script>
+        function checkScreenSize() {
+            if (window.innerWidth <= 778) {
+                document.querySelector('.red-background').style.display = 'none';
+            } else {
+                document.querySelector('.red-background').style.display = 'block';
+            }
+        }
+        window.addEventListener('resize', checkScreenSize);
+        document.addEventListener('DOMContentLoaded', checkScreenSize);
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+   <!--for couter section-->
+    <script>
+                // Counter Animation Script
+        const counters = document.querySelectorAll('.counts');
+        const speed = 200; // Animation speed (adjust as needed)
+
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target'); // Convert target to a number
+            const current = +counter.innerText; // Convert current text to a number
+            const increment = target / speed; // Calculate increment value
+
+            if (current < target) {
+              counter.innerText = Math.ceil(current + increment); // Increment and update the text
+              setTimeout(updateCount, 1); // Recursive call for smooth animation
+            } else {
+              counter.innerText = target; // Set the final value
+            }
+          };
+
+          updateCount(); // Start the counter animation
+        });
+
+    </script>
+    <!--for works section-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const displayedImage = document.getElementById('sign-up');
+
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', () => {
+                    displayedImage.src = thumbnail.src;
+                });
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const icons = document.querySelectorAll(".icon");
+            const displayedImage = document.getElementById("sign-up");
+
+            icons.forEach(icon => {
+                icon.addEventListener("click", function () {
+                    // Remove active class from all icons
+                    icons.forEach(icon => icon.classList.remove("active"));
+
+                    // Add active class to the clicked icon
+                    this.classList.add("active");
+
+                    // Get the image source from the data attribute
+                    const imageSrc = this.getAttribute("data-image");
+
+                    // Check if imageSrc is correctly retrieved
+                    if (imageSrc) {
+                        // Start the fade-out transition
+                        displayedImage.classList.remove("fade-in");
+                        setTimeout(() => {
+                            // Change the image source
+                            displayedImage.setAttribute("src", imageSrc);
+                            // Start the fade-in transition
+                            displayedImage.classList.add("fade-in");
+                        }, 500); // Match the duration of the fade-out transition
+                    } else {
+                        console.error("Image source not found!");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!--budget-->
+    <script>
+        function toggle(section) {
+            // Hide all sections first
+            document.getElementById('monthly-section').style.display = 'none';
+            document.getElementById('quarterly-section').style.display = 'none';
+            document.getElementById('yearly-section').style.display = 'none';
+            document.getElementById('lifetime-section').style.display = 'none';
+
+            // Show the selected section
+            if (section === 'monthly') {
+                document.getElementById('monthly-section').style.display = 'block';
+            } else if (section === 'quarterly') {
+                document.getElementById('quarterly-section').style.display = 'block';
+            } else if (section === 'yearly') {
+                document.getElementById('yearly-section').style.display = 'block';
+            } else if (section === 'lifetime') {
+                document.getElementById('lifetime-section').style.display = 'block';
+            }
+        }
+    </script>
+    <!--swipper-->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".card-slider", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        });
+    </script>
+    <script>
+        var swiper = new Swiper('.card-slider', {
+            slidesPerView: 1, // Display one slide at a time
+            spaceBetween: 20, // Set the space between items
+             loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+             breakpoints: {
+                // When window width is >= 768px
+                768: {
+                    slidesPerView: 6, // Display three slides at a time
+                },
+                // When window width is >= 992px
+                992: {
+                    slidesPerView: 4,
+                },
+            },
+              effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+            });
+    </script>
+
+
+</body>
+
+</html>
